@@ -1,54 +1,6 @@
 import numpy as np
 import time
 
-	# have repeat item, return True
-	return row_check(map) or col_check(map) or block_check(map)
-
-	# TODO: bug
-	def __init__(self, map):
-		self.map = map
-		self.BACKUP_MAP = init_map.copy()
-	
-	def back_track(self, i, j):
-		x, y = i, j
-		assert x >= 0
-		if self.BACKUP_MAP[x, y]:
-			x = i-1 if j-1<0 else i
-			y = 8 if j-1<0 else j-1
-			return self.back_track(x, y)
-		else:
-			if self.map[x, y] < 9:
-				self.map[x, y] += 1
-				if not global_check(self.map):
-					return self.map, x, y
-				else:
-					return self.back_track(x, y)
-			else:
-				self.map[x, y] = 0
-				x = i-1 if j-1<0 else i
-				y = 8 if j-1<0 else j-1
-				return self.back_track(x, y)
-		
-	def core_(self, x ,y):
-		for i in range(self.map.shape[0]):
-			for j in range(self.map.shape[1]):
-				if self.map[i, j] == 0:
-					for number in range(1, 10):
-						self.map[i, j] = number
-						if not global_check(self.map):
-							break
-						else:
-							if number == 9:
-								self.map, x, y = self.back_track(i, j)
-								return self.core_(x, y)
-							else:
-								continue
-
-		return self.map
-	
-	def core(self):
-		return self.core_(0, 0)
-
 class DictRemove():
 	"""
 		Source: https://github.com/maxiaoguai/sudoku/blob/master/sudoku.py
