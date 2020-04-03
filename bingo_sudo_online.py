@@ -51,7 +51,7 @@ class DictRemove():
 		print('time consume:', end_time-start_time)
 		return self.map
 
-def get_map_from_web_sudopk(chrome_driver_path, name, pwd):
+def get_map_from_web_sudopk(chrome_driver_path, name, pwd, sudomap_url):
 	from selenium import webdriver
 	from selenium.webdriver.common.by import By
 	global browser # avoid to kill browser window 
@@ -67,9 +67,8 @@ def get_map_from_web_sudopk(chrome_driver_path, name, pwd):
 	if btn_login is None:
 		btn_login = browser.find_element(By.ID, 'btn_login')
 	btn_login.click()
-	# step2 : skip to check map
-	url = 'https://www.oubk.com/DailySudoku/18355/5'
-	browser.get(url)
+	# step2 : skip to sudo map
+	browser.get(sudomap_url)
 	time.sleep(1)
 	# step3 : bingo sudu 
 	map = np.zeros((9,9))
@@ -103,7 +102,8 @@ if __name__ == '__main__':
 	chrome_driver_path = r'D:\Anoconda\app\Lib\site-packages\selenium\webdriver\chrome\chromedriver.exe'
 	name = 'your name'
 	pwd = 'your password'
-	get_map_from_web_sudopk(chrome_driver_path, name, pwd)
+	sudomap_url = 'https://www.oubk.com/DailySudoku/18355/5'
+	get_map_from_web_sudopk(chrome_driver_path, name, pwd, sudomap_url)
 	
 	
 		
