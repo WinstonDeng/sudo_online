@@ -2,6 +2,10 @@
 全自动在线数独求解工具。登录，读题，解题，提交一键完成！
 </br>
 此项目针对此[数独在线网站](https://www.oubk.com/)
+</br>
+![image](https://github.com/WinstonDeng/sudo_online/images/leaderboard.png)
+</br>
+仅供学习，切勿他用
 # 需要什么？
 * python 3
 * numpy (pip install numpy)
